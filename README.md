@@ -15,7 +15,9 @@ This project is an **AI-powered YouTube Lecture Summarizer** that extracts **tra
 ## Tech Stack
 • Frontend: Next.js, React, Tailwind CSS, ShadCN UI  
 • Backend API: Next.js API Routes, OpenAI GPT-4  
-• Transcripts: External YouTube Transcript API  
+• Transcripts: External YouTube Transcript API
+
+• Also using yt-dlp & ffmpeg
 
 ## Installation & Setup
 ### Clone the Repository
