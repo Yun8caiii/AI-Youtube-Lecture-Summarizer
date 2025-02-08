@@ -17,7 +17,8 @@ This project is an **AI-powered YouTube Lecture Summarizer** that extracts **tra
 • Backend API: Next.js API Routes, OpenAI GPT-4  
 • Transcripts: External YouTube Transcript API
 
-• Also using yt-dlp & ffmpeg
+• Require downloading yt-dlp & ffmpeg
+https://github.com/yt-dlp/yt-dlp
 
 ## Installation & Setup
 ### Clone the Repository
