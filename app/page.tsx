@@ -5,8 +5,18 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2 } from "lucide-react";
 
+const LANGUAGES = [
+  { code: "en", label: "English" },
+  { code: "es", label: "Spanish" },
+  { code: "fr", label: "French" },
+  { code: "de", label: "German" },
+  { code: "zh-Hans", label: "Chinese (Simplified)" },
+  { code: "ja", label: "Japanese" },
+];
+
 export default function Home() {
   const [videoUrl, setVideoUrl] = useState("");
+  const [selectedLang, setSelectedLang] = useState("en"); // Default: English
   const [transcript, setTranscript] = useState("");
   const [summary, setSummary] = useState("");
   const [loading, setLoading] = useState(false);
@@ -22,7 +32,7 @@ export default function Home() {
       const res = await fetch("/api/getTranscript", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ videoUrl }),
+        body: JSON.stringify({ videoUrl, lang: selectedLang }),
       });
 
       const data = await res.json();
@@ -33,7 +43,7 @@ export default function Home() {
       } else {
         setError(data.error || "Failed to fetch transcript.");
       }
-    } catch {
+    } catch (err) {
       setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
@@ -47,7 +57,7 @@ export default function Home() {
           🎓 YouTube Lecture Summarizer
         </h1>
         <p className="text-center text-gray-600 dark:text-gray-400 mb-4">
-          Enter a YouTube URL to extract and summarize its transcript.
+          Enter a YouTube URL and select a language to extract and summarize its transcript.
         </p>
 
         <Input
@@ -57,6 +67,19 @@ export default function Home() {
           onChange={(e) => setVideoUrl(e.target.value)}
           className="w-full mb-4"
         />
+
+        {/* 🌍 Language Selector */}
+        <select
+          value={selectedLang}
+          onChange={(e) => setSelectedLang(e.target.value)}
+          className="w-full mb-4 p-2 border rounded-lg bg-gray-200 dark:bg-gray-700"
+        >
+          {LANGUAGES.map((lang) => (
+            <option key={lang.code} value={lang.code}>
+              {lang.label}
+            </option>
+          ))}
+        </select>
 
         <Button
           onClick={fetchTranscript}
@@ -70,7 +93,7 @@ export default function Home() {
 
         {transcript && (
           <div className="mt-6">
-            <h2 className="text-lg font-semibold mb-2">📝 Transcript</h2>
+            <h2 className="text-lg font-semibold mb-2">📝 Transcript ({selectedLang.toUpperCase()})</h2>
             <Textarea className="w-full h-40" value={transcript} readOnly />
           </div>
         )}
