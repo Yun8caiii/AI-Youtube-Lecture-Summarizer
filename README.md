@@ -1,10 +1,6 @@
-AI Youtube Lecture Summarizer
+## AI Youtube Lecture Summarizer
 
 This project is an **AI-powered YouTube Lecture Summarizer** that extracts **transcripts** from YouTube videos and generates **concise summaries** using **OpenAI GPT-4**. 
-
-![alt text](before.png)
-
-![alt text](after.png)
 
 ## Features
 • Extracts transcripts** from YouTube videos  
@@ -19,6 +15,12 @@ This project is an **AI-powered YouTube Lecture Summarizer** that extracts **tra
 
 • Require downloading yt-dlp & ffmpeg
 https://github.com/yt-dlp/yt-dlp
+
+## How It Looks: 
+![alt text](before.png)
+
+Here is an example of me adding Rick Astley - Never Gonna Give You Up (Official Music Video) to the Lecture Summarizer
+![alt text](after.png)
 
 ## Installation & Setup
 ### Clone the Repository
