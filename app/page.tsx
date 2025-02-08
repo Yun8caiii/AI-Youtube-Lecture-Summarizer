@@ -68,7 +68,7 @@ export default function Home() {
           className="w-full mb-4"
         />
 
-        {/* 🌍 Language Selector */}
+        {/* Language Selector */}
         <select
           value={selectedLang}
           onChange={(e) => setSelectedLang(e.target.value)}
