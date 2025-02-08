@@ -5,7 +5,7 @@ import fs from "fs";
 import path from "path";
 
 const execPromise = promisify(exec);
-const ytDlpPath = `"C:\\yt-dlp\\yt-dlp.exe"`; // ✅ Ensure this path is correct
+const ytDlpPath = `"C:\\yt-dlp\\yt-dlp.exe"`; // Ensure this path is correct
 
 export async function POST(req: Request) {
   try {
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
 
     // Read and clean up subtitles
     let subtitles = fs.readFileSync(subtitleFile, "utf8");
-    fs.unlinkSync(subtitleFile); // ✅ Delete file after reading
+    fs.unlinkSync(subtitleFile); // Delete file after reading
 
     // Remove timestamps and metadata
     subtitles = subtitles
@@ -67,7 +67,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         model: "gpt-4",
         messages: [
-          { role: "system", content: `Summarize this YouTube lecture in simple terms (Language: ${lang}).` },
+          { role: "system", content: `Summarize this YouTube lecture in simple terms (In this Language: ${lang}).` },
           { role: "user", content: subtitles },
         ],
         max_tokens: 300,

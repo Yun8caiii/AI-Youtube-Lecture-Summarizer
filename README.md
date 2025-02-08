@@ -2,6 +2,10 @@ AI Youtube Lecture Summarizer
 
 This project is an **AI-powered YouTube Lecture Summarizer** that extracts **transcripts** from YouTube videos and generates **concise summaries** using **OpenAI GPT-4**. 
 
+![alt text](before.png)
+
+![alt text](after.png)
+
 ## Features
 • Extracts transcripts** from YouTube videos  
 • Summarizes lectures using GPT-4**  
